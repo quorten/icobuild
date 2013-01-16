@@ -1,0 +1,103 @@
+How to Make Your Own Icons
+----------------------------------------------------------------------
+
+With the proper tools and the proper knowledge, making your own icons
+is simple.  First of all, you should know some design techniques used
+in icons.  If you are not already very well aware on such design
+techniques, skip to the end of this guide and then come back to the
+technical instructions.
+
+Technical Instructions for Windows Icons:
+
+1. Create your icon pictures.  Though you may have multiple pictures
+of different resolutions inside of an icon, you must make an icon that
+either at least has a 32x32 resolution image in it or a 16x16
+resolution image in it.  Other sizes that you may consider are 48x48
+and 256x256.  256x256 is only utilized on Windows Vista and higher.
+
+2. Save a copy of your images as bitmap images.  These saved bitmap
+images are called XOR masks.  If you are designing icons for Windows
+Vista or higher, you should save the 256x256 resolution image as a PNG
+image.  If you are designing Windows XP style icons, you should save
+32-bit bitmaps with alpha channels. You may also want to save low
+color depth bitmaps of your icons too.
+
+NOTE: The 'icobuild' program currently only supports the PNG format
+for icon images that are 256x256 resolution and 32-bit color with an
+alpha channel.  When creating a PNG image, do not create an AND mask
+because only the alpha channel will be used.
+
+3. For each non-PNG saved icon, make an AND mask.  The AND mask should
+be a monochrome bitmap.  Black should be used for the opaque and
+partially transparent areas.  White should be used for the fully
+transparent areas.  The transparent parts of the XOR masks should be
+black.  If they are not black, then you can make your icons have
+interesting effects such as displaying the inverse of that color when
+the icon is not clicked on and having the color disappear when the
+icon gets clicked on.
+
+4. Name your XOR masks in ascending order as XOR0.bmp, XOR1.bmp, ...
+and your AND masks similarly.  The XOR and AND masks with ID 0 will be
+the first icon in the icon file.  Generally, the order you want to
+follow is first group icons of similar color depth, then arrange icons
+of low color depth to come first in the file, and icons of high color
+depth to come last in the file, and in the groups of each color depth,
+high resolution icons should come first and low resolution icons
+should come last.
+
+5. Run the 'icobuild' program on your icons.  The way you do this is
+by moving the icon bitmaps into the directory of the program and then
+opening command prompt (or MS-DOS prompt) and using the 'cd' command
+to change to that directory.  (Or if you have display of the address
+bar in Windows Explorer windows enabled, you can just delete the text
+in the address bar and type '%comspec%' followed by ENTER and command
+prompt will open to the directory of the window.)  Then type
+
+icobuild NUM
+
+where NUM corresponds to the number of different icon sizes and
+bit-depths in the full icon file.  For example, if your bitmap names
+go up to XOR2.bmp and AND2.bmp, you would type
+
+icobuild 3
+
+6. After successfully running 'icobuild', you will have a file called
+'output.ico', which is your generated icon.  You can now delete the
+input images as they can be extracted later with the program
+'icoextract'.  Just type 'icoextract FILE' where FILE is the name of
+the icon file, which must be in the same directory as 'icoextract'.
+For example,
+
+icoextract "Super Icon.ico"
+
+
+Icon Design Strategies
+----------------------------------------------------------------------
+
+Generally, icons are meant to be simple and somewhat ambiguous.  It is
+not uncommon for an icon to not make sense completely on its own and
+seem a little obscure.  For example, a magnifying glass icon is
+typically shown for "search" commands.  What does a magnifying glass,
+used to examine tiny objects which you already know their location,
+have to do with searching, as in racing through cabinets and boxes
+turning over nearly one hundred objects in your house?  The fact is
+that simple pictures cannot convey too much information, but they are
+instead just abstract symbols to represent the greater application
+that they are for.  Icons do indeed represent concrete objects, but
+often times that object only seems familiar upon actually using the
+real application.
+
+Briefly speaking, an icon should represent an independent object or
+reasonable grouping of objects related to the application yet be
+missing a lot of important details that pertain to the application.
+Although it's not entirely possible to create an icon that is fully
+representative of the task that it stands for, an icon should at least
+be a logical abstraction of the task from the user's viewpoint.  Icons
+should be simple and concise.
+
+Note that both Apple and Microsoft speak different words on this
+subject.
+
+Now that you've thought of a good idea for an icon, use the icon
+builder program documented in the previous section to build your icon
+file.
