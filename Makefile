@@ -37,6 +37,6 @@ uninstall:
 
 dist:
 	mkdir icobuild-$(VERSION)
-	cp $(DISTFILES) icobuild-$(VERSION)
+	cp -p $(DISTFILES) icobuild-$(VERSION)
 	zip -9rq icobuild-$(VERSION).zip icobuild-$(VERSION)
 	rm -rf icobuild-$(VERSION)
