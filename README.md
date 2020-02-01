@@ -1,5 +1,5 @@
 icobuild README
-***************
+===============
 
 I put together Windows icons with a tool that I wrote myself (platform
 independent, source code included), along with some other Windows
