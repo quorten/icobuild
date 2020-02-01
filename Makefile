@@ -14,7 +14,7 @@ bmptool_SOURCES = bmptool.c icoinfo.h
 bin_PROGRAMS = icobuild$(X) icoextract$(X) bmptool$(X)
 
 DISTFILES = icobuild.c icoinfo.h icoextract.c bmptool.c \
-	README icons-howto.txt Makefile vga-palette.bmp
+	README.md UNLICENSE icons-howto.txt Makefile vga-palette.bmp
 
 all: $(bin_PROGRAMS)
 
