@@ -4,7 +4,9 @@
 /* Simple data definitions */
 typedef unsigned char BYTE;
 typedef unsigned short WORD;
-typedef unsigned long DWORD;
+/* N.B.: To get 32-bit on both 32-bit and 64-bit compiles, use `int'
+   instead of `long'.  */
+typedef unsigned int DWORD;
 typedef long LONG; /* ? */
 
 /* #pragma ms-struct(push) */
